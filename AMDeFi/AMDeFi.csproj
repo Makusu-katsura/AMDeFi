@@ -1,0 +1,71 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Microsoft.Net.Http.Headers" Version="2.2.8" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Models\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Behaviors\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Services\" />
+    <Folder Include="CustomControls\" />
+    <Folder Include="Converters\" />
+    <Folder Include="Components\" />
+    <Folder Include="Views\BorrowMenu\" />
+    <Folder Include="Views\LendMenu\" />
+    <Folder Include="Views\WalletMenu\" />
+    <Folder Include="ViewModels\BorrowMenu\" />
+    <Folder Include="ViewModels\LendMenu\" />
+    <Folder Include="ViewModels\WalletMenu\" />
+    <Folder Include="ViewModels\StatusTrackerMenu\" />
+    <Folder Include="Views\CustomViews\" />
+    <Folder Include="Models\BurrowerModel\" />
+    <Folder Include="Models\LenderModel\" />
+    <Folder Include="Views\WalletMenu\HistoryDAICoin\" />
+    <Folder Include="Models\WalletModel\" />
+    <Folder Include="Views\WalletMenu\HistoryDigitalAssets\" />
+    <Folder Include="Api\" />
+    <Folder Include="Font\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\LendingPage.xaml.cs">
+      <DependentUpon>LendingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\BasePage.xaml.cs">
+      <DependentUpon>BasePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\LandingPage.xaml.cs">
+      <DependentUpon>LandingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CustomViews\BorrowView.xaml.cs">
+      <DependentUpon>BorrowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CustomViews\LendView.xaml.cs">
+      <DependentUpon>LendView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CustomViews\WalletView.xaml.cs">
+      <DependentUpon>WalletView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Views\CustomViews\LendView.xaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

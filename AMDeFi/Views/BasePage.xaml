@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             ios:Page.UseSafeArea="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="AMDeFi.Views.BasePage"  x:Name="BaseContentPage" >
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" Android="0,0,0,0" iOS="0,20,0,0"  />
+    </ContentPage.Padding>
+    <ContentPage.Content>
+          <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+              
+              <!-- Header Session -->
+            <Grid Grid.Row="0" BackgroundColor="#DD7C11"
+                    HeightRequest="60"
+                      IsVisible="{Binding IsActionBarVisible}">
+                <Grid.ColumnDefinitions    Margin="{StaticResource AppPageMargin}" >
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+            <Image Source="IconAMDeFi.png"   Grid.Row="0"  VerticalOptions="Center"
+                         Scale="1"   IsVisible="{Binding IconAMDeFiVisible }" />
+                
+                <!-- Page Title -->
+                <Label Text="{Binding Path=PageTitle}"  Style="{StaticResource PageTitleStyle}"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand" Grid.Column="0"
+                        Grid.ColumnSpan="3" />
+                <StackLayout WidthRequest="70" HorizontalOptions="Start"
+                              Grid.Column="0" Orientation="Horizontal"
+                              IsVisible="true">
+                    
+                    <Image Source="back.png" Aspect="AspectFill"   Grid.Row="0"  VerticalOptions="Center"
+                          IsVisible="{Binding BackArrowVisible }" Scale="0.5"/>
+                    <!--<Label Text="กลับ" 
+                            VerticalOptions="Center"
+                            HorizontalTextAlignment="Start"
+                            VerticalTextAlignment="Center" IsVisible="{Binding BackArrowVisible }">
+                    </Label>-->
+                     <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BackArrowTapCommand}" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+              
+            </Grid>
+               <!-- Detail View -->
+              
+            <Image Source="imagesBG.jpeg" Aspect="AspectFill"   Grid.Row="1"/>
+            <ContentView Content="{Binding DetailView,Source={x:Reference Name=BaseContentPage}}"
+                          Grid.Row="1" />
+           
+            <!--<Ads:AAdMobView  AdUnitId="{Binding AdUnitId}" Grid.Row="2" HeightRequest="60" BackgroundColor="Transparent"/>-->
+
+         </Grid>
+    </ContentPage.Content>
+</ContentPage>

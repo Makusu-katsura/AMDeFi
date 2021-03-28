@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<pages:BasePage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:AMDeFi.Views;assembly=AMDeFi"
+    xmlns:converter="clr-namespace:AMDeFi.Converters;assembly=AMDeFi"
+    x:Class="AMDeFi.Views.LendMenu.OurPromotions">
+    <pages:BasePage.Resources>
+        <ResourceDictionary>
+            <converter:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectKey" />
+        </ResourceDictionary>
+    </pages:BasePage.Resources>
+    <pages:BasePage.DetailView>
+        <Grid RowSpacing="0" ColumnSpacing="2" BackgroundColor="#EDEDED">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="60"/>
+
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0"  Margin="20,20,20,0" >
+                <Label Text=" Assets A"  FontSize="20" FontAttributes="Bold"  />
+            </StackLayout>
+
+            <Frame Grid.Row="1" HorizontalOptions="FillAndExpand" Margin="20" Grid.ColumnSpan="2"
+                   HasShadow="False" BackgroundColor="#FFFFFF" BorderColor="White" CornerRadius="20">
+                <Grid Padding="10" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Promotion Name"  TextColor="#A9A6A6" Margin="0"></Label>
+                    <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Name}" Margin="0"></Label>
+
+                    <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="Value"  TextColor="#A9A6A6" Margin="0"></Label>
+                    <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Value}"  Margin="0"></Label>
+
+                    <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="Status"  TextColor="#A9A6A6" Margin="0"></Label>
+                    <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Status}"  Margin="0"></Label>
+
+                    <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Text="Comment"  TextColor="#A9A6A6" Margin="0"></Label>
+                    <Label Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Comment}"  Margin="0"></Label>
+
+                    <!--<Label Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Text="TotalVolumn"  TextColor="#A9A6A6" Margin="0"></Label>
+                    <Label Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding TotalVolumn}"  Margin="0"></Label>-->
+
+                </Grid>
+
+            </Frame>
+
+            <Label Text="Edit" Grid.Row="2"  Grid.Column="0"
+                        HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"  VerticalTextAlignment="Center"
+                      TextColor="White" BackgroundColor="#DD7C11"
+                       FontSize="25">
+            </Label>
+             <Label Text="Delete" Grid.Row="2" Grid.Column="1"
+                        HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"  VerticalTextAlignment="Center"
+                      TextColor="White" BackgroundColor="#DD7C11"
+                       FontSize="25">
+            </Label>
+
+        </Grid>
+
+
+
+
+
+    </pages:BasePage.DetailView>
+</pages:BasePage>

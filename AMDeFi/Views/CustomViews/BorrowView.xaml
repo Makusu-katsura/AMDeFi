@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:behavior="clr-namespace:AMDeFi.Behaviors;assembly=AMDeFi"
+             xmlns:converter="clr-namespace:AMDeFi.Converters;assembly=AMDeFi"
+             x:Class="AMDeFi.Views.CustomViews.BorrowView">
+          <ContentView.Resources>
+        <ResourceDictionary>
+            <converter:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectKey" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+     <ContentView.Content>
+    <Grid RowSpacing="20" Padding="10" BackgroundColor="#EDEDED" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Frame Grid.Row="3" HasShadow="False" BackgroundColor="#DD7C11" CornerRadius="20" >
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"  HeightRequest="15">
+                <Image Source="add.png"/>
+                <Label Text="Add Digital Asssets" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="Transparent">
+             
+                </Label>
+            </StackLayout>
+             <Frame.GestureRecognizers>
+                     <TapGestureRecognizer Tapped="NavigateAddAssets"></TapGestureRecognizer>
+             </Frame.GestureRecognizers>
+        </Frame>
+        <StackLayout Grid.Row="0" Orientation="Horizontal" HorizontalOptions="Fill"  Margin="10,10,10,0">
+            <Label Text="My Assets" HorizontalOptions="Start" FontSize="25"/>
+            <Image Source="search.png" Scale="0.7"  HorizontalOptions="EndAndExpand" VerticalOptions="End"/>
+        </StackLayout>
+        <ListView Grid.Row="1" Grid.RowSpan="2" ItemsSource="{Binding Assetlist}" BackgroundColor="#EDEDED" SeparatorVisibility="None"
+                   HasUnevenRows="true" SeparatorColor="Transparent" SelectionMode="Single" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                         <!--BorderColor="#ADA8A8"-->
+                        <Frame Margin="5" HasShadow="False" BorderColor="Transparent" CornerRadius="20">
+                            <Grid ColumnSpacing="15" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                </Grid>
+                                <!--<BoxView HeightRequest="30" WidthRequest="50" BackgroundColor="#A9A6A6" CornerRadius="10"
+                                         Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"/>-->
+                                <Image Source="homeIcon.png" Grid.Row="0" Grid.Column="0"  Grid.RowSpan="2" />
+                                <Label Text="{Binding asset_name}"  Grid.ColumnSpan="2" 
+                                       Grid.Row="0" Grid.Column="1" />
+                                <Label Text="{Binding asset_id}" 
+                                       Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"  FontSize="13" TextColor="#A9A6A6"/>
+                                <Frame Grid.Row="2" Grid.RowSpan="2" Grid.Column="2" BackgroundColor="Green"
+                                       HasShadow="False" CornerRadius="30" HeightRequest="10">
+                                    <Label Text="{Binding status}" TextColor="White" 
+                                        HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+                                </Frame>
+                                <Label Text="{Binding issue_date}" FontSize="12"
+                                       Grid.Row="3" Grid.Column="0"  Grid.ColumnSpan="2"/>
+                            </Grid>
+
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+             <ListView.Behaviors>
+                          <behavior:ListViewSelectedItemBehavior Command="{Binding AssetlistSelectedCommand}"
+                                                            Converter="{StaticResource SelectKey}" />
+                </ListView.Behaviors>
+        </ListView>
+    </Grid>
+         </ContentView.Content>
+</ContentView>

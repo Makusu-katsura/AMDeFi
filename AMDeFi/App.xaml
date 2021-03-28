@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AMDeFi.App">
+    <Application.Resources>
+         <ResourceDictionary>
+              <!-- Margins -->
+            <OnPlatform x:Key="SmallMargin" x:TypeArguments="Thickness"
+                         Android="5" iOS="5" />
+            <OnPlatform x:Key="MediumMargin" x:TypeArguments="Thickness"
+                         Android="10" iOS="10" />
+            <OnPlatform x:Key="LargeMargin" x:TypeArguments="Thickness"
+                         Android="20" iOS="20" />
+            <OnPlatform x:Key="AppPageMargin" x:TypeArguments="Thickness"
+                         Android="20,0" iOS="20,0" />
+            <OnPlatform x:Key="PageMargin" x:TypeArguments="Thickness"
+                         Android="0,20" iOS="0,20" />
+            <OnPlatform x:Key="TitleMargin" x:TypeArguments="Thickness"
+                         Android="20,5" iOS="20,5" />
+            <!-- Font Family -->
+            <OnPlatform x:Key="FontFamily" x:TypeArguments="x:String"
+                         Android="prompt.ttf#normal"
+                         iOS="prompt" />
+            <!-- Color -->
+            <Color x:Key="Yellow">#FFD400</Color>
+            <Color x:Key="LightGray">#F2EDED</Color>
+            <Color x:Key="Cloud">#F4F3F3</Color>
+            <Color x:Key="White">#FFFFFF</Color>
+            <Color x:Key="Sliver">#C9C6CD</Color>
+            <Color x:Key="WarmGrey">#999999</Color>
+            <Color x:Key="Black">#3A3433</Color>
+            <Color x:Key="Brown">#906E6D</Color>
+            <Color x:Key="Gray">#9B9B9B</Color>
+            <Color x:Key="DarkRed">#906E6B</Color>
+            <Color x:Key="SeperatorLineColor">#C9C1C1</Color>
+            <Color x:Key="Red">#F62529</Color>
+            <Color x:Key="PlaceHolderGray">#B2B2B2</Color>
+            <Color x:Key="MaroonGray">#6F5F5E</Color>
+            <Color x:Key="AlertButtonTextColor">#4A4A4A</Color>
+           
+            <!-- Font Sizes -->
+            <OnPlatform x:Key="SmallFontSize" x:TypeArguments="x:Double"
+                         Android="11" iOS="11" />
+            <OnPlatform x:Key="XSmallFontSize" x:TypeArguments="x:Double"
+                         Android="14" iOS="14" />
+            <OnPlatform x:Key="MediumFontSize" x:TypeArguments="x:Double"
+                         Android="17" iOS="17" />
+            <OnPlatform x:Key="LargeFontSize" x:TypeArguments="x:Double"
+                         Android="20" iOS="20" />
+            <OnPlatform x:Key="XLargeFontSize" x:TypeArguments="x:Double"
+                         Android="24" iOS="26" />
+            <OnPlatform x:Key="XXLargeFontSize" x:TypeArguments="x:Double"
+                         Android="36.0" iOS="38.0" />
+            <OnPlatform x:Key="FontSizeNavigatorSign" x:TypeArguments="x:Double"
+                         Android="26.0" iOS="28.0" />
+            <!-- Text Styles -->
+            <Style x:Key="TabbarStyle" TargetType="Label">
+                <Setter Property="FontFamily"
+                         Value="{StaticResource FontFamily}" />
+                <Setter Property="FontSize"
+                         Value="{StaticResource XSmallFontSize}" />
+            </Style>
+           <Style x:Key="PageTitleStyle" TargetType="Label">
+                <Setter Property="FontFamily"
+                         Value="{StaticResource FontFamily}" />
+                <Setter Property="FontSize"
+                         Value="{StaticResource LargeFontSize}" /> 
+                <Setter Property="TextColor"
+                         Value="{StaticResource White}" />
+            </Style>
+              <Style x:Key="TabMenuInDrivingTestStyle" TargetType="Label">
+                <Setter Property="FontFamily"
+                         Value="{StaticResource FontFamily}" />
+                <Setter Property="FontSize"
+                         Value="{StaticResource LargeFontSize}" /> 
+            </Style>
+            
+            
+            <!-- Button Style -->
+            <Style x:Key="ButtonBlackStyle" TargetType="Button">
+                <Setter Property="FontFamily"
+                         Value="{StaticResource FontFamily}" />
+                <Setter Property="FontSize"
+                         Value="{StaticResource MediumFontSize}" />
+                <Setter Property="TextColor" Value="{StaticResource Yellow}" />
+                <Setter Property="BackgroundColor"
+                         Value="{StaticResource Black}" />
+                <Setter Property="CornerRadius" Value="0" />
+            </Style>
+           
+         </ResourceDictionary>
+    </Application.Resources>
+</Application>

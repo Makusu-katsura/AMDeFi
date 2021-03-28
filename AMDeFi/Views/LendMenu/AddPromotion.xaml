@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<pages:BasePage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:AMDeFi.Views;assembly=AMDeFi"
+    xmlns:converter="clr-namespace:AMDeFi.Converters;assembly=AMDeFi"
+    x:Class="AMDeFi.Views.LendMenu.AddPromotion" >
+<pages:BasePage.Resources>
+    <ResourceDictionary>
+        <converter:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectKey" />
+    </ResourceDictionary>
+</pages:BasePage.Resources>
+<pages:BasePage.DetailView >
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Row="1">
+                               <Grid Padding="20">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <!--Customer Details-->
+                                    <Label Grid.Row="0" Grid.Column="0" Text="Lending Name"  Margin="0" />
+                                    <Entry Grid.Row="1" Grid.Column="0" Text="" Placeholder="xxx,xxx,xxx.xx"  Margin="0" />
+                                    <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="Lending Type"  Margin="0,10,0,0" />
+                                    <Entry Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Text="" Placeholder="Mortgage, etc."   Margin="0" />
+
+                                    <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="Maximum Credit Limit"  Margin="0,10,0,0" />
+                                    <Entry Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Text="" Placeholder="100% of price"   Margin="0" />
+
+                                    <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Text="Approval Credit Limit"  Margin="0,10,0,0" />
+                                    <Entry Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Text="" Placeholder="1,000,000 (Baht)"   Margin="0" />
+
+                                    <Label Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Text="Interest Rate Per Year"  Margin="0,10,0,0" />
+                                    <Entry Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Text="" Placeholder="XX.XX%"   Margin="0" />
+
+                                    <Label Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Text="Minimum Income"  Margin="0,10,0,0" />
+                                    <Entry Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" Text="" Placeholder="50,0000 (Baht)"   Margin="0" />
+
+                                    <Label Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="2" Text="Interest Calculation"  Margin="0,10,0,0" />
+                                    <Entry Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="2" Text="" Placeholder="XXX"   Margin="0" />
+
+                                    <Label Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="2" Text="Documents For Consideration"  Margin="0,10,0,0" />
+                                    <Entry Grid.Row="15" Grid.Column="0" Grid.ColumnSpan="2" Text="" Placeholder="ID Card , etc."   Margin="0" />
+
+
+                                </Grid>
+                        
+        </StackLayout>
+
+        <Label Text="Submit" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"  VerticalTextAlignment="Center"
+               Grid.Row="2" TextColor="White" BackgroundColor="#DD7C11"
+               FontSize="25">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="SubmitLendingCriteria"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+    </Grid>
+</pages:BasePage.DetailView>
+</pages:BasePage>
+

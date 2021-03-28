@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="AMDeFi.Views.CustomViews.WalletView">
+
+      <Grid RowSpacing="10" Padding="0" BackgroundColor="#EDEDED">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+          <StackLayout Grid.Row="0" Grid.Column="0"  BackgroundColor="#DD7C11">
+
+          </StackLayout>
+          <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+              <Label Text="Hello" FontSize="18" TextColor="WhiteSmoke" Margin="20,0,0,0"/>
+              <Label Text="Supatchara A." FontSize="25" TextColor="White" FontAttributes="Bold" Margin="20,0,0,0"/>
+            <Frame Padding="10" Margin="20" HasShadow="False" BackgroundColor="#FFFFFF" CornerRadius="25">
+                <Grid HorizontalOptions="Center" VerticalOptions="Center" ColumnSpacing="10">
+                     <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                     <Image Source="d.png" Grid.Column="0"  Grid.Row="0" />
+                     <Label Text="{Binding TotalDAICoin}" Grid.Column="1" TextColor="Black" FontAttributes="Bold" FontSize="30" HorizontalTextAlignment="Center" Grid.Row="0"></Label>
+                     <Label Text="Total Balance" Grid.Column="1" Grid.Row="1" FontSize="12" TextColor="#ADA8A8" ></Label>
+                 </Grid>
+            </Frame>
+              </StackLayout>
+            <Label Margin="20,20,0,0" Text="Recent Transection" TextColor="Black" FontSize="20" HorizontalTextAlignment="Start" Grid.Row="1" ></Label>
+                    
+            <ListView Margin="10"  Grid.Row="2"  ItemsSource="{Binding historyDAICoin}"  BackgroundColor="#EDEDED" SeparatorVisibility="None"
+                   HasUnevenRows="true" SeparatorColor="Transparent" SelectionMode="Single">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                             <Frame Margin="5" HasShadow="False" BorderColor="Transparent" CornerRadius="15">
+                                <Grid ColumnSpacing="15"  RowSpacing="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                    </Grid>
+
+                                    <Label Text="{Binding transaction_name}" 
+                                           Grid.Row="0"  Grid.Column="0" VerticalOptions="Center" />
+                                    <Label Text="{Binding issue_date}" FontSize="12"  TextColor="#ADA8A8"
+                                           Grid.Row="1"  Grid.Column="0" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                                    <Grid  Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" VerticalOptions="Center" HorizontalOptions="End">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                            <Image Source="{Binding icon}" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" Scale="0.5"/>
+                                            <Label Text="{Binding total}"  Grid.Column="1" FontSize="25" TextColor="{Binding TestColor}" FontAttributes="Bold"
+                                           HorizontalOptions="End" VerticalOptions="Center"/>
+                                    </Grid>
+                                </Grid>
+
+                        </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+
+        </Grid>
+</ContentView>

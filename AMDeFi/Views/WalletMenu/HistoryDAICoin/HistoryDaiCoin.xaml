@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<pages:BasePage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:AMDeFi.Views;assembly=AMDeFi"
+    xmlns:converter="clr-namespace:AMDeFi.Converters;assembly=AMDeFi"
+    x:Class="AMDeFi.Views.WalletMenu.HistoryDAICoin.HistoryDaiCoin">
+    <pages:BasePage.Resources>
+        <ResourceDictionary>
+            <converter:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectKey" />
+        </ResourceDictionary>
+    </pages:BasePage.Resources>
+    <pages:BasePage.DetailView>
+        <Grid RowSpacing="10" Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <Frame Grid.Row="0" Grid.Column="0" Margin="20" HasShadow="False" BackgroundColor="#DD7C11">
+                <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                     <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                     <Image Source="dollar.png" Grid.Column="0"  Grid.Row="0" />
+                     <Label Text="{Binding TotalDAICoin}" Grid.Column="1" TextColor="White" FontSize="30" HorizontalTextAlignment="End" Grid.Row="0"></Label>
+                     <Label Text="Total Balance" Grid.Column="1" Grid.Row="1" FontSize="12" TextColor="White" ></Label>
+                 </Grid>
+            </Frame>
+            <Label Text="Recent Transection" TextColor="Black" FontSize="20" HorizontalTextAlignment="Start" Grid.Row="1" Margin="5"></Label>
+                    
+            <ListView Grid.Row="2"  ItemsSource="{Binding historyDAICoin}"  HasUnevenRows="true" SeparatorColor="Transparent" SelectionMode="Single">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                             <Frame Margin="5" HasShadow="False" BorderColor="#ADA8A8">
+                                <Grid ColumnSpacing="15" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                    </Grid>
+
+                                    <Label Text="{Binding transaction_name}" 
+                                           Grid.Row="0"  Grid.Column="0" VerticalOptions="Center" />
+                                    <Label Text="{Binding issue_date}" FontSize="12"  TextColor="#ADA8A8"
+                                           Grid.Row="1"  Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+                                    <Label Text="{Binding snapshot_balance}" FontSize="12" 
+                                           Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" HorizontalOptions="End" VerticalOptions="Center"/>
+                                </Grid>
+
+                        </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+
+        </Grid>
+    </pages:BasePage.DetailView>
+</pages:BasePage>

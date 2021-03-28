@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<pages:BasePage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+         xmlns:pages="clr-namespace:AMDeFi.Views;assembly=AMDeFi"
+    xmlns:converter="clr-namespace:AMDeFi.Converters;assembly=AMDeFi"
+    x:Class="AMDeFi.Views.LendMenu.AssetsOwn">
+    <pages:BasePage.Resources>
+        <ResourceDictionary>
+            <converter:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectKey" />
+        </ResourceDictionary>
+    </pages:BasePage.Resources>
+    <pages:BasePage.DetailView>
+
+        <Grid RowSpacing="0" BackgroundColor="#EDEDED">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="60"/>
+
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0"  Margin="20,20,20,0" >
+                <Label Text=" Assets A"  FontSize="20" FontAttributes="Bold"  />
+            </StackLayout>
+
+            <Frame Grid.Row="1" HorizontalOptions="FillAndExpand" Margin="20"
+                   HasShadow="False" BackgroundColor="#FFFFFF" BorderColor="White" CornerRadius="20">
+                <ScrollView>
+                <Grid Padding="10" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Asset Name"  TextColor="#A9A6A6" Margin="0"></Label>
+                    <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Name}" Margin="0"></Label>
+
+                     <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="value"  TextColor="#A9A6A6" Margin="0"></Label>
+                    <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Text="10000"  Margin="0"></Label>
+
+                     <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="type"  TextColor="#A9A6A6" Margin="0"></Label>
+                    <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Text="secure loan"  Margin="0"></Label>
+                    <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Text="loan"  TextColor="#A9A6A6" Margin="0"></Label>
+                    <Label Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Text="8,000"  Margin="0"></Label>
+
+                    <Label Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Text="status"  TextColor="#A9A6A6" Margin="0"></Label>
+                    <Label Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Text="callateral"  Margin="0"></Label>
+
+                    <Label Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Text="token"  TextColor="#A9A6A6" Margin="0"></Label>
+                    <Label Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" Text="0x534adsDAdsfkewlvkkjsfweiQQdjefn398fps025hc8NEEIjfoe"  Margin="0"></Label>
+                     <BoxView Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="1" BackgroundColor="Gray" Margin="0"></BoxView>
+                   
+                    <Label Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="2" Text="0xIJdsdnauGdeworj39NJndop0389djDjfes5iht4ncKJsweovjKa"  Margin="0"></Label>
+                    <BoxView Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="1" BackgroundColor="Gray" Margin="0"></BoxView>
+                   
+                    <Label Grid.Row="15" Grid.Column="0" Grid.ColumnSpan="2" Text="0x0347idsjfsjjfrmskgnoierl38chfs7jdJJFmekkedsojwWWfkv"  Margin="0"></Label>
+
+                    
+                </Grid>
+                 </ScrollView>
+            </Frame>
+
+            <Label Text="Sell" Grid.Row="2" 
+                        HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"  VerticalTextAlignment="Center"
+                      TextColor="White" BackgroundColor="#DD7C11"
+                       FontSize="25">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="SellSubmit"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+        </Grid>
+
+
+    </pages:BasePage.DetailView>
+</pages:BasePage>

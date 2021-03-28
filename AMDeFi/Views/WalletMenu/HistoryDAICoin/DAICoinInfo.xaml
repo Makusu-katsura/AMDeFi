@@ -1,0 +1,54 @@
+﻿
+<pages:BasePage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:AMDeFi.Views;assembly=AMDeFi"
+    xmlns:converter="clr-namespace:AMDeFi.Converters;assembly=AMDeFi"
+    x:Class="AMDeFi.Views.WalletMenu.HistoryDAICoin.DAICoinInfo">
+    <pages:BasePage.Resources>
+        <ResourceDictionary>
+            <converter:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectKey" />
+        </ResourceDictionary>
+    </pages:BasePage.Resources>
+    <pages:BasePage.DetailView>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+
+            </Grid.RowDefinitions>
+            <Label Text="AssetsA" HorizontalOptions="CenterAndExpand" Grid.Row="0"></Label>
+            <Grid RowSpacing="0" Grid.Row="1" HorizontalOptions="CenterAndExpand">
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+
+
+                </Grid.RowDefinitions>
+
+                <Label Text="{Binding Name}" Grid.Row="0" HorizontalOptions="CenterAndExpand"></Label>
+                <Label Text="{Binding Type}" Grid.Row="1" HorizontalOptions="CenterAndExpand"></Label>
+                <Label Text="{Binding Amount}" Grid.Row="2" HorizontalOptions="CenterAndExpand"></Label>
+                <Label Text="{Binding Burrower}" Grid.Row="3" HorizontalOptions="CenterAndExpand"></Label>
+                <Label Text="{Binding DateTime}" Grid.Row="4" HorizontalOptions="CenterAndExpand"></Label>
+
+
+            </Grid>
+            
+                <Label Text="Sell" BackgroundColor="LightGreen" HorizontalOptions="CenterAndExpand" Grid.Row="2">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSubmitSell"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                
+
+
+        </Grid>
+
+    </pages:BasePage.DetailView>
+</pages:BasePage>
+

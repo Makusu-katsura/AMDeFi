@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behavior="clr-namespace:AMDeFi.Behaviors;assembly=AMDeFi"
+             xmlns:converter="clr-namespace:AMDeFi.Converters;assembly=AMDeFi"
+             x:Class="AMDeFi.Views.CustomViews.LendView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <converter:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectKey" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+     <ContentView.Content>
+  <Grid RowSpacing="10" Padding="10" BackgroundColor="#EDEDED">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Frame Grid.Row="0" HorizontalOptions="End" HasShadow="False" BackgroundColor="#DD7C11" BorderColor="White" CornerRadius="20" >
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"  HeightRequest="15">
+            <Image Source="market.png"/>
+             <Label Text="digital assets market" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="Transparent">
+             </Label>
+            </StackLayout>
+               <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NaviagateAssetsMarket"></TapGestureRecognizer>
+                </Frame.GestureRecognizers>
+        </Frame>
+       <Frame Grid.Row="1"  HasShadow="False" BackgroundColor="White" CornerRadius="20" Padding="0" >
+           <Grid HeightRequest="60" ColumnSpacing="2"> 
+               <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+               </Grid.ColumnDefinitions>
+     
+               <Frame Grid.Column="0" HorizontalOptions="FillAndExpand"
+                      CornerRadius="20"  VerticalOptions="Center"
+                      HasShadow="False"  x:Name="ControlAssets">
+                    <Label Text="Assets Own" x:Name="ControlAssetsText"  HorizontalOptions="Center" />
+                   <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="NavigateAssetsOwn"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+               </Frame>
+                <Frame  Grid.Column="2"  HorizontalOptions="FillAndExpand"
+                        CornerRadius="20"  VerticalOptions="Center"
+                       HasShadow="False" x:Name="ControlPromotion" >
+                     <Label Text="Our Promotion"  x:Name="ControlPromotionText" HorizontalOptions="Center" TextColor="#A9A6A6"/>
+                    <Frame.GestureRecognizers>
+                     <TapGestureRecognizer Tapped="NavigateOurPromotion"></TapGestureRecognizer>
+             </Frame.GestureRecognizers>
+               </Frame>
+           </Grid>
+       </Frame>
+
+      <!--Assets Own-->
+      <StackLayout Grid.Row="2" BackgroundColor="#EDEDED" IsVisible="False" x:Name="AssetsOwn" >
+           <ListView Grid.Row="3" ItemsSource="{Binding OwnAssetlist}" BackgroundColor="Transparent" SeparatorVisibility="None"
+                   HasUnevenRows="true" SeparatorColor="Transparent" SelectionMode="Single" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Margin="5" HasShadow="False" BorderColor="Transparent" CornerRadius="20">
+                                <Grid ColumnSpacing="15" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                    </Grid>
+                            
+                                <Label Text="{Binding Number}" 
+                                       Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" VerticalOptions="Center" />
+                                <Label Text="{Binding AssetsName}" 
+                                       Grid.Row="0" Grid.Column="1" />
+                                <Label Text="{Binding Value}" TextColor="Green" 
+                                       Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+                                <Label Text="{Binding Date}" FontSize="12"
+                                       Grid.Row="1" Grid.Column="1"  Grid.ColumnSpan="2"/>
+                                </Grid>
+
+
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+              <ListView.Behaviors>
+                          <behavior:ListViewSelectedItemBehavior Command="{Binding OwnAssestSelectCommand}"
+                                                            Converter="{StaticResource SelectKey}" />
+                </ListView.Behaviors>
+        </ListView>
+      </StackLayout>
+
+       <StackLayout Grid.Row="2" BackgroundColor="#EDEDED" IsVisible="False" x:Name="OurPromotion" Orientation="Vertical" >
+           <ListView Grid.Row="1" ItemsSource="{Binding OurPromotionList}" BackgroundColor="Transparent" SeparatorVisibility="None"
+                   HasUnevenRows="true" SeparatorColor="Transparent" SelectionMode="Single">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                             <Frame Margin="5" HasShadow="False" BorderColor="Transparent" CornerRadius="20">
+                          
+                                    <Grid ColumnSpacing="15" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                    </Grid>
+                            
+                                <Label Text="{Binding Name}" 
+                                       Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" VerticalOptions="Center" />
+                                <Label Text="{Binding Value}" HorizontalOptions="Center" VerticalOptions="Center"
+                                       Grid.Row="0" Grid.Column="2"  />
+                               
+                                </Grid>
+
+                              </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Behaviors>
+                    <behavior:ListViewSelectedItemBehavior Command="{Binding OurPromotionListSelectCommand}"
+                                                            Converter="{StaticResource SelectKey}" />
+                </ListView.Behaviors>
+            </ListView>
+                <Frame Grid.Row="0" HasShadow="False" BackgroundColor="#DD7C11" CornerRadius="20" >
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"  HeightRequest="15">
+                    <Image Source="add.png"/>
+                    <Label Text="Add Promotion" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="Transparent">
+                    </Label>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NavigateAddPromotion"></TapGestureRecognizer>
+                </Frame.GestureRecognizers>
+            </Frame>
+      </StackLayout>
+
+    </Grid>
+         </ContentView.Content>
+</ContentView>
+

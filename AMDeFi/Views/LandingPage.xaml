@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:BasePage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:pages="clr-namespace:AMDeFi.Views;assembly=AMDeFi"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:AMDeFi.Views.CustomViews;assembly=AMDeFi"
+             x:Class="AMDeFi.Views.LandingPage">
+    <pages:BasePage.DetailView>
+         <ContentView>
+            <Grid RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="55" />
+                </Grid.RowDefinitions>
+                
+                <views:HomeView Grid.Row="0" x:Name="HomeView" IsVisible="true" />
+                <views:BorrowView Grid.Row="0" x:Name="BorrowView" IsVisible="False" />
+                <views:LendView Grid.Row="0" x:Name="LendView" IsVisible="False" />
+                <views:WalletView Grid.Row="0" x:Name="WalletView" IsVisible="False" />
+                <BoxView HeightRequest="1" BackgroundColor="#ADA8A8" Grid.Row="1" Margin="0,0,0,5"/>
+                <Grid Grid.Row="2" ColumnSpacing="0" BackgroundColor="Transparent">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                      <!-- Home -->
+                    <BoxView Grid.Column="0" ClassId="Home" >
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="HomeViewSelectedEvent" />
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
+                    <Grid  Grid.Column="0"
+                           Margin="0"
+                           Padding="3"
+                           RowSpacing="0" 
+                           InputTransparent="true"
+                           BackgroundColor="{Binding MenuStyle.HomeMenuColor}" >
+                            <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0"
+                               Source="{Binding MenuStyle.HomeMenuIcon}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"   />
+                        <Label Grid.Row="1"
+                               Text="Home"
+                               TextColor="{Binding MenuStyle.HomeMenuTextColor}"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Style="{StaticResource TabbarStyle}" />
+                    </Grid>
+                    <!-- Borrow -->
+                    <BoxView Grid.Column="1" ClassId="Borrow" >
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="BorrowViewSelectedEvent" />
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
+                    <Grid  Grid.Column="1"
+                           Margin="0"
+                           Padding="3"
+                           RowSpacing="0" 
+                           InputTransparent="true"
+                           BackgroundColor="{Binding MenuStyle.BorrowMenuColor}" >
+                            <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0"
+                               Source="{Binding MenuStyle.BorrowMenuIcon}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"   />
+                        <Label Grid.Row="1"
+                               Text="Borrow"
+                               TextColor="{Binding MenuStyle.BorrowMenuTextColor}"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Style="{StaticResource TabbarStyle}" />
+                    </Grid>
+                    <!-- Lend -->
+                    <BoxView Grid.Column="2" ClassId="Lend">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="LendViewSelectedEvent" />
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
+                    <Grid  Grid.Column="2"
+                           Margin="0"
+                           Padding="3"
+                           RowSpacing="0"
+                           InputTransparent="true" 
+                           BackgroundColor="{Binding MenuStyle.LendMenuColor}" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0"
+                               Source="{Binding MenuStyle.LendMenuIcon}"
+                               HorizontalOptions="Center"  
+                               VerticalOptions="Center" />
+                          <Label Grid.Row="1"
+                                 Text="Lend"
+                                 TextColor="{Binding MenuStyle.LendMenuTextColor}"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center"
+                                 Style="{StaticResource TabbarStyle} "/>
+                    </Grid>
+                    <!-- Wallet -->
+                    <BoxView Grid.Column="3" ClassId="Wallet">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="WalletViewSelectedEvent" />
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
+                    <Grid  Grid.Column="3"
+                           Padding="3"
+                           Margin="0"
+                           RowSpacing="0"
+                           BackgroundColor="{Binding MenuStyle.WalletMenuColor}"
+                           InputTransparent="true" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Image  Grid.Row="0"
+                                Source="{Binding MenuStyle.WalletMenuIcon}" 
+                                HorizontalOptions="Center" 
+                                VerticalOptions="Center" />
+                        <Label  Grid.Row="1"
+                                Text="Wallet"
+                                TextColor="{Binding MenuStyle.WalletMenuTextColor}"
+                                HorizontalOptions="Center" 
+                                VerticalOptions="Center"
+                                Style="{StaticResource TabbarStyle} "/>
+                    </Grid>
+                   
+                </Grid>
+            </Grid>
+        </ContentView>
+    </pages:BasePage.DetailView>
+</pages:BasePage>
